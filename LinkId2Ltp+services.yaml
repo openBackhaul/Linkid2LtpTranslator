@@ -1,5 +1,4 @@
 servers:
-
     operation-servers:
       own-oam:
         basic:
@@ -43,7 +42,7 @@ servers:
             uuid: l2lt-1-0-0-op-s-is-000
             # Add Services specific to this application
             # param: LinkId
-          - service-name: /v1/translate-linkid-to-ltp
+          - service-name: /v1/translate-linkid-to-ltpuuid
             uuid: l2lt-1-0-0-op-s-is-001
     http-server:
       own-application-name: Linkid2LtpTranslator
@@ -53,11 +52,7 @@ servers:
       own-ip-address: 1.1.4.8 ## Add OwnIpAddress
       own-tcp-port: 4008 ## Add OwnTcpPort
       uuid: l2lt-1-0-0-tcp-s-bm-000
-  
-  
-  
-  clients:
-  
+clients:
     - http-client:
         application-name: OldRelease
         release-number: 1.0.0
