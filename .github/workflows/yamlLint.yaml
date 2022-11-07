@@ -1,4 +1,3 @@
----
 name: Yaml Lint
 on:
   pull_request:
@@ -7,11 +6,13 @@ jobs:
   lintAllTheThings:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: yaml-lint
-        uses: ibiqlik/action-yamllint@v3
-        with:
-          config_data: |
+    - uses: actions/checkout@v2
+    - name: yaml-lint
+      uses: ibiqlik/action-yamllint@v3
+      with:
+        format: github
+        config_data: |
             extends: default
             rules:
-              line-length: disable
+            line-length: disable
+            document-start: disable
