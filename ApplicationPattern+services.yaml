@@ -52,8 +52,6 @@ servers:
     own-tcp-port: ## TODO: Add OwnTcpPort
     uuid: xx-1-0-0-tcp-s-bm-000
 
-
-
 clients:
 
   - http-client:
