@@ -1881,7 +1881,7 @@ paths:
                       schema:
                         type: object
                         required:
-                        - oam-request-is-approved
+                          - oam-request-is-approved
                         properties:
                           oam-request-is-approved:
                             type: boolean
@@ -5311,9 +5311,9 @@ paths:
                                                 items:
                                                   type: object
                                                   required:
-                                                  - release-number
-                                                  - release-date
-                                                  - changes
+                                                    - release-number
+                                                    - release-date
+                                                    - changes
                                                   properties:
                                                     release-number:
                                                       type: string
@@ -5782,7 +5782,7 @@ paths:
                                   string-value:
                                     type: string
               example:
-              - core-model-1-4:profile:
+                - core-model-1-4:profile:
                   uuid: 'ro-1-0-0-action-p-000'
                   profile-name: 'action-profile-1-0:PROFILE_NAME_TYPE_ACTION_PROFILE'
                   action-profile-1-0:action-profile-pac:
@@ -5795,7 +5795,7 @@ paths:
                       display-in-new-browser-window: false
                     action-profile-configuration:
                       request: 'https://10.118.125.157:1000/v1/inform-about-application-in-generic-representation'
-              - core-model-1-4:profile:
+                - core-model-1-4:profile:
                   uuid: 'ro-1-0-0-integer-p-000'
                   profile-name: 'integer-profile-1-0:PROFILE_NAME_TYPE_INTEGER_PROFILE'
                   integer-profile-1-0:integer-profile-pac:
@@ -6804,9 +6804,9 @@ paths:
                     items:
                       type: object
                       required:
-                      - release-number
-                      - release-date
-                      - changes
+                        - release-number
+                        - release-date
+                        - changes
                       properties:
                         release-number:
                           type: string
@@ -7415,16 +7415,16 @@ paths:
       requestBody:
         required: true
         content:
-            application/json:
-              schema:
-                type: object
-                required:
-                  - http-client-interface-1-0:release-number
-                properties:
-                  http-client-interface-1-0:release-number:
-                    type: string
-                    pattern: '^([0-9]{1,2})\.([0-9]{1,2})\.([0-9]{1,2})$'
-                    example: '1.0.0'
+          application/json:
+            schema:
+              type: object
+              required:
+                - http-client-interface-1-0:release-number
+              properties:
+                http-client-interface-1-0:release-number:
+                  type: string
+                  pattern: '^([0-9]{1,2})\.([0-9]{1,2})\.([0-9]{1,2})$'
+                  example: '1.0.0'
       responses:
         '204':
           description: 'Release number configured'
