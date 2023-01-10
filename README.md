@@ -1,38 +1,22 @@
-# Linkid2LtpTranslator
-### Purpose
-- to be provided
-
-### ApplicationOwner
-- Tim Lehner
+Delete this link at the end of the specification process:  
 - [Roadmap to Specification](../../issues/1)
 
-### Services
-- to be provided
+# Linkid2LtpTranslator
 
-### Profiles
-- to be provided
+### Location
+The Linkid2LtpTranslator is part of the HighPerformanceNetworkInterface.
 
-### Forwardings
-- to be provided
+### Description
+The Linkid2LtpTranslator is supporting e.g. the Resolver and the FineGrainedLinkDataCollector in creating a valid RESTCONF URI. It is translating the Telefonica Link ID from within x:akta or APT into the UUID of an AirInterface LTP. Linkid2LtpTranslator is continuously going through the MicroWaveDeviceInventory and updating its internal translation table. Concrete translation results are provided on individual service requests.
 
-### Open API specification (Swagger)
-- to be provided
+### Relevance
+The Linkid2LtpTranslator serves as a "phone book". 
+Other applications require it for addressing live network resources.
 
-### CONFIGfile
-- to be provided
-
-### Test Cases (Postman Export) and DATAfile
-- to be provided
-
-### Publication
-- No official publication planned
-
-### Classification
-- Live Network
-- High Performance Network Interface
-
-### Open Issue List
-- [Linkid2LtpTranslator/issues](../../issues)
+### Resources
+- [Specification](./spec/)
+- [TestSuite](./testing/)
+- [Implementation](./server/)
 
 ### Comments
-This application will be specified within framework of the workshop series for ApplicationOwners.
+This application will be specified during training for ApplicationOwner.
