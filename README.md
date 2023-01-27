@@ -19,4 +19,4 @@ Other applications require it for addressing live network resources.
 - [Implementation](./server/)
 
 ### Comments
-This application will be specified during training for ApplicationOwner.
+This application will be specified during [training for ApplicationOwners](https://gist.github.com/openBackhaul/5aabdbc90257b83b9fe7fc4da059d3cd).
