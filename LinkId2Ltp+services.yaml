@@ -42,8 +42,10 @@ servers:
             uuid: l2lt-1-0-0-op-s-is-000
             # Add Services specific to this application
             # param: LinkId
-          - service-name: /v1/translate-linkid-to-ltpuuid
+          - service-name: /v1/translate-linkid-to-ltpuuids
             uuid: l2lt-1-0-0-op-s-is-001
+          - service-name: /v1/translate-linkid-to-ltpuuids-in-generic-representation
+            uuid: l2lt-1-0-0-op-s-is-002
     http-server:
       own-application-name: Linkid2LtpTranslator
       own-release-number: 1.0.0
