@@ -71,7 +71,9 @@ clients:
           tcp-port: 3015
           uuid: l2lt-1-0-0-tcp-c-es-1-0-0-000
       elasticsearch-client:
-        
+          uuid: l2lt-1-0-0-es-c-es-1-0-0-000
+          index-alias: 5
+
     - http-client:
           application-name: OldRelease
           release-number: 1.0.0
@@ -87,7 +89,7 @@ clients:
                   - operation-name: /v1/bequeath-your-data-and-die
                     uuid: l2lt-1-0-0-op-c-bm-or-1-0-0-000
               individual:
-            service:
+          service:
               basic:
               individual:
 
@@ -272,6 +274,6 @@ clients:
                   # get list of mount names to iterate through
                   - service-name: /v1/provide-list-of-mwdi-mount-names
                     uuid: l2lt-1-0-0-op-c-mwdi-1-0-0-000
-                  # iterate through mount names and contained ltps until link id is found => Queryparam: ?content=config&fields=logical-termination-point
-                  - service-name: /node={mount-name}/yang-ext:mount/core-model-1-4:control-construct
+                  # iterate through mount names and contained ltps until link id is found
+                  - service-name: /node={mount-name}/yang-ext:mount/core-model-1-4:control-construct?content=config&fields=logical-termination-point(layer-protocol(layer-protocol-name);uuid;name(value-name;value))
                     uuid: l2lt-1-0-0-op-c-mwdi-1-0-0-001
