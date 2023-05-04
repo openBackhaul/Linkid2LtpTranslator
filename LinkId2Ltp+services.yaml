@@ -59,7 +59,6 @@ servers:
         own-tcp-port: 4008
         uuid: l2lt-1-0-0-tcp-s-bm-000
 
-
 clients:
     - http-client:
           application-name: ElasticSearch
@@ -254,7 +253,6 @@ clients:
               service:
                   basic:
               individual:
-#######hi
 
     - http-client:
           application-name: MicroWaveDeviceInventory
