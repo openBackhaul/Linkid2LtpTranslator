@@ -129,8 +129,8 @@ clients:
                     uuid: l2lt-1-0-0-op-c-bm-ro-2-0-1-003
               individual:
           service:
-          basic:
-          individual:
+              basic:
+              individual:
 
     - http-client:
           application-name: TypeApprovalRegister
@@ -147,7 +147,7 @@ clients:
               individual:
           service:
               basic:
-          individual:
+              individual:
 
     - http-client:
           application-name: ExecutionAndTraceLog
