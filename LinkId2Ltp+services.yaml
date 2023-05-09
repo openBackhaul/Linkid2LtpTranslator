@@ -42,8 +42,6 @@ servers:
                 - operation-name: /docs
                   uuid: l2lt-1-0-0-op-s-bs-005
             individual:
-                - service-name: /v1/start-application-in-generic-representation
-                  uuid: l2lt-1-0-0-op-s-is-000
                 - service-name: /v1/translate-linkid-to-ltpuuids
                   uuid: l2lt-1-0-0-op-s-is-001
                 - service-name: /v1/translate-linkid-to-ltpuuids-in-generic-representation
