@@ -1,0 +1,15 @@
+name: Linter
+# yamllint disable-line rule:truthy
+on:
+  pull_request:
+    branches: [develop]
+jobs:
+  yaml:
+    name: YAML
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: yaml-lint
+        uses: ibiqlik/action-yamllint@v3
+        with:
+          format: github
