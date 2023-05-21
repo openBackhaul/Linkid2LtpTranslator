@@ -42,9 +42,9 @@ servers:
                 - operation-name: /docs
                   uuid: l2lt-1-0-0-op-s-bs-005
             individual:
-                - service-name: /v1/translate-linkid-to-ltpuuids
+                - service-name: /v1/translate-linkid-to-ltp-uuids
                   uuid: l2lt-1-0-0-op-s-is-001
-                - service-name: /v1/translate-linkid-to-ltpuuids-in-generic-representation
+                - service-name: /v1/translate-linkid-to-ltp-uuids-in-generic-representation
                   uuid: l2lt-1-0-0-op-s-is-002
     http-server:
         own-application-name: Linkid2LtpTranslator
