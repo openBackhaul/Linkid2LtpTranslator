@@ -2,30 +2,30 @@ servers:
     operation-servers:
         own-oam:
             basic:
-                - service-name: /v1/register-yourself
+                - operation-name: /v1/register-yourself
                   uuid: l2lt-1-0-0-op-s-bm-000
-                - service-name: /v1/embed-yourself
+                - operation-name: /v1/embed-yourself
                   uuid: l2lt-1-0-0-op-s-bm-001
-                - service-name: /v1/redirect-service-request-information
+                - operation-name: /v1/redirect-service-request-information
                   uuid: l2lt-1-0-0-op-s-bm-002
-                - service-name: /v1/redirect-oam-request-information
+                - operation-name: /v1/redirect-oam-request-information
                   uuid: l2lt-1-0-0-op-s-bm-003
-                - service-name: /v1/end-subscription
+                - operation-name: /v1/end-subscription
                   uuid: l2lt-1-0-0-op-s-bm-004
-                - service-name: /v1/inquire-oam-request-approvals
+                - operation-name: /v1/inquire-oam-request-approvals
                   uuid: l2lt-1-0-0-op-s-bm-005
-                - service-name: /v1/update-client
+                - operation-name: /v1/update-client
                   uuid: l2lt-1-0-0-op-s-bm-007
-                - service-name: /v1/list-ltps-and-fcs
+                - operation-name: /v1/list-ltps-and-fcs
                   uuid: l2lt-1-0-0-op-s-bm-008
-                - service-name: /v1/redirect-topology-change-information
+                - operation-name: /v1/redirect-topology-change-information
                   uuid: l2lt-1-0-0-op-s-bm-009
-                - service-name: /v1/update-operation-key
+                - operation-name: /v1/update-operation-key
                   uuid: l2lt-1-0-0-op-s-bm-010
-                - service-name: /v1/update-operation-client
+                - operation-name: /v1/update-operation-client
                   uuid: l2lt-1-0-0-op-s-bm-011
             individual:
-                - service-name: /v1/bequeath-your-data-and-die
+                - operation-name: /v1/bequeath-your-data-and-die
                   uuid: l2lt-1-0-0-op-s-im-000
         service:
             basic:
@@ -42,18 +42,25 @@ servers:
                 - operation-name: /docs
                   uuid: l2lt-1-0-0-op-s-bs-005
             individual:
-                - service-name: /v1/translate-linkid-to-ltp-uuids
+                - operation-name: /v1/translate-linkid-to-ltp-uuids
                   uuid: l2lt-1-0-0-op-s-is-001
-                - service-name: /v1/translate-linkid-to-ltp-uuids-in-generic-representation
+                - operation-name: /v1/translate-linkid-to-ltp-uuids-in-generic-representation
                   uuid: l2lt-1-0-0-op-s-is-002
     http-server:
         own-application-name: Linkid2LtpTranslator
         own-release-number: 1.0.0
         uuid: l2lt-1-0-0-http-s-bm-000
     tcp-server:
-        own-ip-address: 1.1.4.8
-        own-tcp-port: 4008
-        uuid: l2lt-1-0-0-tcp-s-bm-000
+        - description: Without TLS layer
+          local-protocol: http
+          own-ip-address: 1.1.4.8
+          own-tcp-port: 4008
+          uuid: l2lt-1-0-0-tcp-s-000
+        - description: With TLS layer
+          local-protocol: https
+          own-ip-address: 1.2.4.8
+          own-tcp-port: 4208
+          uuid: l2lt-1-0-0-tcp-s-001
 
 clients:
     - http-client:
@@ -87,7 +94,7 @@ clients:
 
     - http-client:
           application-name: NewRelease
-          release-number: 1.0.1
+          release-number: 1.0.0
           uuid: l2lt-1-0-0-http-c-nr-1-0-0-000
       tcp-client:
           remote-protocol: http
@@ -263,8 +270,8 @@ clients:
               basic:
               individual:
                   # get list of mount names to iterate through
-                  - service-name: /v1/provide-list-of-mwdi-mount-names
-                    uuid: l2lt-1-0-0-op-c-mwdi-1-0-0-000
+                  - operation-name: /?fields=node(node-id)
+                    uuid: l2lt-1-0-0-op-c-is-mwdi-1-0-0-000
                   # iterate through mount names and contained ltps until link id is found
-                  - service-name: /node={mount-name}/yang-ext:mount/core-model-1-4:control-construct?content=config&fields=logical-termination-point(layer-protocol(layer-protocol-name);uuid;name(value-name;value))
+                  - operation-name: /node={mount-name}/yang-ext:mount/core-model-1-4:control-construct?fields=logical-termination-point(layer-protocol(layer-protocol-name);uuid;name(value-name;value))
                     uuid: l2lt-1-0-0-op-c-mwdi-1-0-0-001
