@@ -266,4 +266,3 @@ clients:
           # fields filter for forwarding list: }?fields=logical-termination-point(layer-protocol(layer-protocol-name);uuid;name(value-name;value))
           - operation-name: /core-model-1-4:network-control-domain=cache/control-construct={mount-name}
             uuid: l2lt-1-0-0-op-c-is-mwdi-1-0-0-100
-
