@@ -1,0 +1,28 @@
+@startuml 01x_TranslateLinkIdToLtpLocalId
+
+skinparam responseMessageBelowArrow true
+
+title
+RequestForTranslatingLinkIdtoLtpLocalId
+end title
+
+participant "external" as requestor
+participant "L2LT://v1/translate-link-id-to-ltp-local-id" as l2lt
+participant "MWDI://core-model-1-4:network-control-domain=cache/link={uuid}" as resolver
+ 
+requestor -> l2lt: {linkId}
+activate l2lt
+ 
+note over l2lt
+    DetermineLinkEndpoints: retrieve address triplets
+end note
+l2lt -> resolver: {uuid=linkId}
+resolver --> l2lt: {(mountName, uuid-of-airInterface, localId-of-ltp)-A, (mountName, uuid-of-airInterface, localId-of-ltp)-B}
+
+l2lt --> requestor: {(localId-of-ltp)-A, (localId-of-ltp)-B}
+
+deactivate l2lt
+@enduml
+
+ 
+

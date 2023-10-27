@@ -1,0 +1,60 @@
+@startuml 00x_Embedding
+
+title 
+EmbeddingCausesCyclicRequestsForUpdatingLink2LtpFile
+end title
+
+participant "RO" as ro
+participant "L2LT://v1-embed-yourself \ncylic operation" as embed
+participant "MWDI://v1/provide-list-of-connected-devices" as connectedDevices
+participant "MWDI://TODO(read external Label)" as findLink
+participant "L2LT://v1/translate-link-id-to-ltp-local-ids" as translate
+'TODO: generic representation
+
+
+
+'möglicherweise LinkId hierher
+'participant "MWDI://core-model-1-4:network-control-domain=cache/control-construct={mount-name}/logical-termination-point={uuid}/\nlayer-protocol={local-id}/air-interface-2-0:air-interface-pac/air-interface-configuration?fields=air-interface-name" as AirInterfaceName
+
+
+ro -> embed
+activate embed
+
+note over embed
+    <u>GetListOfConnectedDevices</u>
+end note
+embed -> connectedDevices
+connectedDevices --> embed: {mountNameList}
+
+note over findLink #Pink
+    Wo findet man die LinkId?
+    AirInterfaceName?
+    falls ja:
+        - enthät AirInterfaceName LinkId oder UnitId?
+        - vorher extra Schritt, um uuid und LocalId für AirInterface abzufragen
+end note
+
+note over embed
+    FOR EACH mountName from GetListOfConnectedDevices
+        <u>GetLinkIds</u>
+        Store linkIds from response in temporary linkIdList uniquely
+end note
+embed -> findLink: {mountName}
+findLink --> embed: {linkIdList}
+
+
+
+note over embed
+    FOR EACH unique linkId from GetLinkIds temporary list
+        <u>TranslateLinkIdToLtp</u>
+end note
+embed -> translate: {linkId}
+translate --> embed: {ltpLocalId-A, ltpLocalId-B}
+
+note over embed
+    Write (linkId, ltpLocalId-A, ltpLocalId-B) to file
+end note
+
+deactivate embed
+
+@enduml
