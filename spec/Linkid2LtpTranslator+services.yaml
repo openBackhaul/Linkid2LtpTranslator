@@ -42,10 +42,13 @@ servers:
         - operation-name: /docs
           uuid: l2lt-1-0-0-op-s-bs-005
       individual:
-        - operation-name: /v1/translate-linkid-to-ltp-uuids
+        - operation-name: /v1/provide-ltp-local-id-for-link
           uuid: l2lt-1-0-0-op-s-is-000
-        - operation-name: /v1/translate-linkid-to-ltp-uuids-in-generic-representation
+        ## cyclic operation
+        - operation-name: /v1/translate-link-id-to-ltp-local-ids
           uuid: l2lt-1-0-0-op-s-is-001
+        - operation-name: /v1/provide-ltp-local-id-for-link-in-generic-representation
+          uuid: l2lt-1-0-0-op-s-is-002
   http-server:
     own-application-name: Linkid2LtpTranslator
     own-release-number: 1.0.0
